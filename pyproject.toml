@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "cron_parser"
+version = "0.1.0"
+description = "A command-line tool for parsing cron expressions and expanding each field to show execution times."
+authors = ["Konstantin Grigorov <k.l.grigorov@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/kolygri/cron_parser"
+repository = "https://github.com/kolygri/cron_parser"
+keywords = ["cron", "parser", "command-line", "scheduling"]
+packages = [{ include = "cron_tool", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.dev-dependencies]
+pytest = "^8.3.1"
+mypy = "^1.5.1"
+black = "^23.9.1"
+isort = "^5.12.0"
+coverage = "^7.3.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+python_version = "3.11"
+files = ["src/cron_tool/**/*.py", "tests/**/*.py"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--strict-markers"
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.black]
+line-length = 120
+target-version = ["py311"]
+
+[tool.isort]
+profile = "black"
+
+[tool.poetry.scripts]
+cron_parser = "cron_tool.cron_parser:main"

@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Virtual environment
+.env
+.venv
+
+# Poetry specific
+poetry.lock
+
+# Pytest caches
+.pytest_cache/
+
+# Mypy caches
+.mypy_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
